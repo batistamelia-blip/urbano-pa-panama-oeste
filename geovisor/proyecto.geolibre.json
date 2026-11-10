@@ -1,55 +1,99 @@
 {
-  "version": "1.0.0",
-  "id": "geolibre-pa-panama-oeste",
-  "name": "Panamá · Panamá Oeste: expansión urbana y ocupación potencial",
   "description": "La iniciativa propone comparar imágenes satelitales y referencias territoriales para localizar cambios de cobertura y nuevas superficies construidas en Arraiján y La Chorrera. El resultado apoyará la priorización de inspecciones y la actualización de inventarios de asentamientos.",
-  "metadata": {
-    "project_id": "pa-panama-oeste",
-    "community": "Comunidad Urbana Copernicus Centroamérica",
-    "referential_frame_only": true,
-    "note": "Centroide referencial declarado en S02 (8.94515, -79.75532) para Arraiján y La Chorrera (~89.115 ha). Los tres polígonos piloto de G9 tienen escala local independiente y requieren validación topológica y autorización antes de publicarse."
-  },
+  "id": "geolibre-pa-panama-oeste",
+  "layers": [
+    {
+      "id": "pa-distritos-referencia-osm",
+      "name": "Límite distrital referencial: Arraiján y La Chorrera (OSM ODbL)",
+      "source": "pa-distritos-referencia-osm",
+      "status": "en_revision",
+      "style": {
+        "fill_color": "#14283F",
+        "fill_opacity": 0.08,
+        "stroke_color": "#14283F",
+        "stroke_width": 2.2
+      },
+      "visible": true
+    },
+    {
+      "id": "pa-pilotos-grupo9",
+      "name": "Tres polígonos piloto suministrados (Grupo 9 — KML convertidos)",
+      "source": "pa-pilotos-grupo9",
+      "status": "en_revision",
+      "style": {
+        "fill_color": "#007F8B",
+        "fill_opacity": 0.35,
+        "stroke_color": "#004c54",
+        "stroke_width": 2.5
+      },
+      "visible": true
+    }
+  ],
   "map": {
-    "engine": "maplibre",
+    "basemap": "carto-positron",
+    "bearing": 0,
     "center": [
       -79.75532,
       8.94515
     ],
-    "zoom": 11.2,
-    "bearing": 0,
+    "engine": "maplibre",
     "pitch": 0,
-    "basemap": "carto-positron"
+    "zoom": 11.2
   },
-  "sources": {},
-  "layers": [],
+  "metadata": {
+    "community": "Comunidad Urbana Copernicus Centroamérica",
+    "note": "Centroide referencial declarado en S02 (8.94515, -79.75532) para Arraiján y La Chorrera (~89.115 ha). Los tres polígonos piloto de G9 tienen escala local independiente y requieren validación topológica y autorización antes de publicarse.",
+    "project_id": "pa-panama-oeste",
+    "referential_frame_only": false,
+    "schema_version": "1.0.0"
+  },
+  "name": "Panamá · Panamá Oeste: expansión urbana y ocupación potencial",
   "planned_layers": [
     {
-      "id": "pa-pilotos-homologados",
-      "title": "Polígonos de áreas piloto revisados",
-      "status": "en_preparacion",
-      "expected_file_hint": "geovisor/data/pilotos_panama_oeste.geojson",
-      "caveat": "Las etiquetas originales de los polígonos no acreditan informalidad ni invasión."
+      "caveat": "Fuente externa abierta: OpenStreetMap contributors (ODbL). Carácter referencial sujeto a homologación con cartografía oficial INEC/MIVIOT.",
+      "expected_file_hint": "geovisor/capas/distritos_arraijan_la_chorrera_osm.geojson",
+      "id": "pa-distritos-referencia-osm",
+      "status": "en_revision",
+      "title": "Límite distrital referencial: Arraiján y La Chorrera (OSM ODbL)"
     },
     {
-      "id": "pa-ndbi-ndvi-cambio",
-      "title": "Diferencia multitemporal ΔNDBI / ΔNDVI (20 m)",
-      "status": "en_preparacion",
+      "caveat": "Convertidos de los KML originales del expediente (Área de Proyecto 1, Crecimiento Informal, Zona de Invasión). Los nombres son etiquetas de trabajo y NO acreditan informalidad ni invasión.",
+      "expected_file_hint": "geovisor/capas/pilotos_grupo9_panama_oeste.geojson",
+      "id": "pa-pilotos-grupo9",
+      "status": "en_revision",
+      "title": "Tres polígonos piloto suministrados (Grupo 9 — KML convertidos)"
+    },
+    {
+      "caveat": "NDBI usa banda B11 de 20 m; no debe interpretarse como precisión de 10 m ni confundirse con suelo desnudo estacional.",
       "expected_file_hint": "URL XYZ/Tile de GEE o COG en servicio externo",
-      "caveat": "NDBI usa banda B11 de 20 m; no debe interpretarse como precisión de 10 m ni confundirse con suelo desnudo estacional."
+      "id": "pa-ndbi-ndvi-cambio",
+      "status": "en_preparacion",
+      "title": "Diferencia multitemporal ΔNDBI / ΔNDVI (20 m)"
     },
     {
-      "id": "pa-candidatos-cambio",
-      "title": "Polígonos candidatos de cambio construido",
-      "status": "en_preparacion",
+      "caveat": "Detección preliminar sujeta a matriz de confusión con ortofotos, PLOT y verificación institucional de MIVIOT.",
       "expected_file_hint": "geovisor/data/candidatos_cambio.geojson",
-      "caveat": "Detección preliminar sujeta a matriz de confusión con ortofotos, PLOT y verificación institucional de MIVIOT."
+      "id": "pa-candidatos-cambio",
+      "status": "en_preparacion",
+      "title": "Polígonos candidatos de cambio construido"
     },
     {
-      "id": "pa-intensidad-cambio",
-      "title": "Intensidad relativa de concentración de cambios",
-      "status": "en_preparacion",
+      "caveat": "Representa densidad espacial de señales de cambio; NO es temperatura superficial ni certificación jurídica.",
       "expected_file_hint": "URL XYZ/Tile o COG de intensidad focal",
-      "caveat": "Representa densidad espacial de señales de cambio; NO es temperatura superficial ni certificación jurídica."
+      "id": "pa-intensidad-cambio",
+      "status": "en_preparacion",
+      "title": "Intensidad relativa de concentración de cambios"
     }
-  ]
+  ],
+  "sources": {
+    "pa-distritos-referencia-osm": {
+      "type": "geojson",
+      "url": "/geovisor/capas/distritos_arraijan_la_chorrera_osm.geojson"
+    },
+    "pa-pilotos-grupo9": {
+      "type": "geojson",
+      "url": "/geovisor/capas/pilotos_grupo9_panama_oeste.geojson"
+    }
+  },
+  "version": "1.0.0"
 }
