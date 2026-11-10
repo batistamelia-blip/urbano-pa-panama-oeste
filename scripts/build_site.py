@@ -545,6 +545,21 @@ def build_home_page(
             declared_only=demo_declared_only,
         )
 
+    team_members = manifest.get("team", [])
+    team_html = ""
+    if team_members:
+        names = [esc(m.get("name", "")) for m in team_members if m.get("name")]
+        if names:
+            team_str = ", ".join(names[:-1]) + " y " + names[-1] if len(names) > 1 else names[0]
+            team_html = f"""
+        <div class="hero-team" style="display:inline-flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin:0 0 1.15rem;padding:0.4rem 0.9rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:999px;font-size:0.95rem;color:#FFFFFF;">
+          <strong style="color:var(--c-accent-yellow,#FFC800);display:inline-flex;align-items:center;gap:0.35rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Equipo de la iniciativa:
+          </strong>
+          <span>{team_str}</span>
+        </div>"""
+
     hero = f"""
     <section class="hero">
       <div class="container">
@@ -554,6 +569,7 @@ def build_home_page(
           {badge_html(manifest['pmv']['scope_status'], 'Alcance PMV')}
         </div>
         <h1>{esc(manifest['title'])}</h1>
+        {team_html}
         <p class="hero-lead">{esc(manifest['summary'])}</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="{html.escape(ctx.site_url('aplicacion/'), quote=True)}">Abrir Geovisor (GeoLibre)</a>

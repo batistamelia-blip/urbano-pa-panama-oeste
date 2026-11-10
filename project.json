@@ -300,7 +300,22 @@
       }
     ]
   },
-  "team": [],
+  "team": [
+    {
+      "name": "Yennifer Cedeño",
+      "role": "Equipo de iniciativa",
+      "institution": "Ministerio de Vivienda y Ordenamiento Territorial de Panamá (MIVIOT)",
+      "github_username": "ycedenopa",
+      "profile_url": "https://github.com/ycedenopa"
+    },
+    {
+      "name": "Amelia Batista",
+      "role": "Equipo de iniciativa",
+      "institution": "Ministerio de Vivienda y Ordenamiento Territorial de Panamá (MIVIOT)",
+      "github_username": null,
+      "profile_url": null
+    }
+  ],
   "data_sources": [
     {
       "title": "Sentinel-2 / óptico multiespectral",
