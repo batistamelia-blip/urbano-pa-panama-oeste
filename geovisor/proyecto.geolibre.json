@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "id": "geolibre-pa-panama-oeste",
+  "name": "Panamá · Panamá Oeste: expansión urbana y ocupación potencial",
+  "description": "La iniciativa propone comparar imágenes satelitales y referencias territoriales para localizar cambios de cobertura y nuevas superficies construidas en Arraiján y La Chorrera. El resultado apoyará la priorización de inspecciones y la actualización de inventarios de asentamientos.",
+  "metadata": {
+    "project_id": "pa-panama-oeste",
+    "community": "Comunidad Urbana Copernicus Centroamérica",
+    "referential_frame_only": true,
+    "note": "Centroide referencial declarado en S02 (8.94515, -79.75532) para Arraiján y La Chorrera (~89.115 ha). Los tres polígonos piloto de G9 tienen escala local independiente y requieren validación topológica y autorización antes de publicarse."
+  },
+  "map": {
+    "engine": "maplibre",
+    "center": [
+      -79.75532,
+      8.94515
+    ],
+    "zoom": 11.2,
+    "bearing": 0,
+    "pitch": 0,
+    "basemap": "carto-positron"
+  },
+  "sources": {},
+  "layers": [],
+  "planned_layers": [
+    {
+      "id": "pa-pilotos-homologados",
+      "title": "Polígonos de áreas piloto revisados",
+      "status": "en_preparacion",
+      "expected_file_hint": "geovisor/data/pilotos_panama_oeste.geojson",
+      "caveat": "Las etiquetas originales de los polígonos no acreditan informalidad ni invasión."
+    },
+    {
+      "id": "pa-ndbi-ndvi-cambio",
+      "title": "Diferencia multitemporal ΔNDBI / ΔNDVI (20 m)",
+      "status": "en_preparacion",
+      "expected_file_hint": "URL XYZ/Tile de GEE o COG en servicio externo",
+      "caveat": "NDBI usa banda B11 de 20 m; no debe interpretarse como precisión de 10 m ni confundirse con suelo desnudo estacional."
+    },
+    {
+      "id": "pa-candidatos-cambio",
+      "title": "Polígonos candidatos de cambio construido",
+      "status": "en_preparacion",
+      "expected_file_hint": "geovisor/data/candidatos_cambio.geojson",
+      "caveat": "Detección preliminar sujeta a matriz de confusión con ortofotos, PLOT y verificación institucional de MIVIOT."
+    },
+    {
+      "id": "pa-intensidad-cambio",
+      "title": "Intensidad relativa de concentración de cambios",
+      "status": "en_preparacion",
+      "expected_file_hint": "URL XYZ/Tile o COG de intensidad focal",
+      "caveat": "Representa densidad espacial de señales de cambio; NO es temperatura superficial ni certificación jurídica."
+    }
+  ]
+}

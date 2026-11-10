@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "pa-panama-oeste",
+  "title": "Panamá Oeste: expansión urbana y ocupación potencial",
+  "country": {
+    "code": "PA",
+    "name": "Panamá"
+  },
+  "map_view": {
+    "center": [
+      -79.75532,
+      8.94515
+    ],
+    "zoom": 11.2,
+    "declared_centroid": [
+      -79.75532,
+      8.94515
+    ],
+    "is_referential": true,
+    "reference_note": "Centroide referencial declarado en S02 (8.94515, -79.75532) para Arraiján y La Chorrera (~89.115 ha). Los tres polígonos piloto de G9 tienen escala local independiente y requieren validación topológica y autorización antes de publicarse.",
+    "area_declared": "89.115 ha (≈ 891 km²) según polígono del formulario en S02; tres áreas piloto separadas en G9.",
+    "scale_label": "Área metropolitana / conurbación y polígonos piloto"
+  },
+  "geolibre_integration": {
+    "web_app_base_url": "https://web.geolibre.app/",
+    "project_file": "geovisor/proyecto.geolibre.json",
+    "embed_layout": "maponly",
+    "supports_local_geojson_preview": true
+  },
+  "planned_controls": [
+    "Selector de las tres áreas piloto (Área de Proyecto 1, Crecimiento Informal, Zona de Invasión — nombres heredados del expediente, no condición jurídica).",
+    "Selector y comparador temporal de periodos estacionales aprobados (resolviendo compatibilidad del periodo base frente a 2016).",
+    "Conmutador de compuestos RGB (10 m), índices NDVI/NDBI (interpretados a 20 m) y retrodispersión SAR Sentinel-1 VV/VH.",
+    "Filtro de áreas candidatas según estado de revisión muestral (confirmado, descartado, pendiente de inspección)."
+  ],
+  "external_references": [
+    {
+      "label": "Catálogo GEE: COPERNICUS/S2_SR_HARMONIZED (disponible desde 2017-03-28)",
+      "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+      "kind": "documentacion_tecnica",
+      "note": "Referencia técnica verificada: obliga a ajustar o acordar la línea base 2016 del script S29."
+    },
+    {
+      "label": "Guía GEE: Carga de tablas (Shapefile / CSV)",
+      "url": "https://developers.google.com/earth-engine/guides/table_upload",
+      "kind": "documentacion_tecnica",
+      "note": "Convertir los KML piloto a Shapefile o GeoJSON verificado antes de la ingesta."
+    }
+  ],
+  "layers": [
+    {
+      "id": "pa-pilotos-homologados",
+      "title": "Polígonos de áreas piloto revisados",
+      "group": "Ámbito y referencia",
+      "format": "geojson",
+      "geometry_type": "polygon",
+      "status": "en_preparacion",
+      "source_path": null,
+      "expected_file_hint": "geovisor/data/pilotos_panama_oeste.geojson",
+      "resolution": "Vectorial (WGS84 / EPSG:4326)",
+      "style": {
+        "fill_color": "#007F8B",
+        "fill_opacity": 0.15,
+        "stroke_color": "#14283F",
+        "stroke_width": 2
+      },
+      "caveat": "Las etiquetas originales de los polígonos no acreditan informalidad ni invasión."
+    },
+    {
+      "id": "pa-ndbi-ndvi-cambio",
+      "title": "Diferencia multitemporal ΔNDBI / ΔNDVI (20 m)",
+      "group": "Análisis espectral Copernicus",
+      "format": "xyz_or_cog",
+      "geometry_type": "raster",
+      "status": "en_preparacion",
+      "source_path": null,
+      "expected_file_hint": "URL XYZ/Tile de GEE o COG en servicio externo",
+      "resolution": "20 m (banda SWIR B11 nativa)",
+      "style": {
+        "palette": [
+          "#2166ac",
+          "#f7f7f7",
+          "#b2182b"
+        ]
+      },
+      "caveat": "NDBI usa banda B11 de 20 m; no debe interpretarse como precisión de 10 m ni confundirse con suelo desnudo estacional."
+    },
+    {
+      "id": "pa-candidatos-cambio",
+      "title": "Polígonos candidatos de cambio construido",
+      "group": "Priorización e inspección",
+      "format": "geojson",
+      "geometry_type": "polygon",
+      "status": "en_preparacion",
+      "source_path": null,
+      "expected_file_hint": "geovisor/data/candidatos_cambio.geojson",
+      "resolution": "Derivado a 20 m (filtro >= 0,05 ha)",
+      "style": {
+        "fill_color": "#d95f02",
+        "fill_opacity": 0.45,
+        "stroke_color": "#8c2d04",
+        "stroke_width": 1.5
+      },
+      "caveat": "Detección preliminar sujeta a matriz de confusión con ortofotos, PLOT y verificación institucional de MIVIOT."
+    },
+    {
+      "id": "pa-intensidad-cambio",
+      "title": "Intensidad relativa de concentración de cambios",
+      "group": "Priorización e inspección",
+      "format": "xyz_or_cog",
+      "geometry_type": "raster",
+      "status": "en_preparacion",
+      "source_path": null,
+      "expected_file_hint": "URL XYZ/Tile o COG de intensidad focal",
+      "resolution": "20 m (suavizado focal 30 m)",
+      "style": {
+        "palette": [
+          "#ffffcc",
+          "#fd8d3c",
+          "#800026"
+        ]
+      },
+      "caveat": "Representa densidad espacial de señales de cambio; NO es temperatura superficial ni certificación jurídica."
+    }
+  ]
+}
