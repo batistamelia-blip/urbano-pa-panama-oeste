@@ -1,6 +1,6 @@
 # Reglas para agentes de IA (`AGENTS.md`)
 
-Este repositorio corresponde a la iniciativa `pa-panama-oeste` (Monitoreo multitemporal de expansión urbana y áreas potenciales de ocupación informal en Panamá Oeste), integrante de la **Comunidad Urbana Copernicus Centroamérica**.
+Este repositorio corresponde a la iniciativa `pa-panama-oeste` (Identificación y delimitación de áreas potenciales de ocupación informal de Panamá Oeste - Caso de estudio Distritos de Arraiján y La Chorrera), integrante de la **Comunidad Urbana Copernicus Centroamérica**.
 
 ## Reglas permanentes de trabajo
 

@@ -1,4 +1,4 @@
-# Monitoreo multitemporal de expansión urbana y áreas potenciales de ocupación informal en Panamá Oeste
+# Identificación y delimitación de áreas potenciales de ocupación informal de Panamá Oeste - Caso de estudio Distritos de Arraiján y La Chorrera
 
 > **Identificador estable de iniciativa:** `pa-panama-oeste` · Parte del ecosistema **Comunidad Urbana Copernicus Centroamérica**.
 
