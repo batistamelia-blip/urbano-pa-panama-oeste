@@ -299,6 +299,60 @@
       "caveat": "Vías principales del área de estudio y alrededores. Fuente: equipo MIVIOT."
     },
     {
+      "id": "pa-perimetro-zona-estudio",
+      "title": "Perímetro de la zona de estudio",
+      "group": "Ámbito y referencia",
+      "format": "geojson",
+      "geometry_type": "polygon",
+      "status": "en_revision",
+      "source_path": "geovisor/capas/perimetro_zona_estudio.geojson",
+      "expected_file_hint": "geovisor/capas/perimetro_zona_estudio.geojson",
+      "resolution": "Vectorial institucional (EPSG:4326)",
+      "style": {
+        "fill_color": "#000A62",
+        "fill_opacity": 0.05,
+        "stroke_color": "#000A62",
+        "stroke_width": 2.0
+      },
+      "caveat": "Límite perimetral y máscara del área de estudio. Fuente: equipo MIVIOT."
+    },
+    {
+      "id": "pa-cobertura-boscosa-miviot",
+      "title": "Cobertura boscosa",
+      "group": "Cobertura y uso del suelo",
+      "format": "geojson",
+      "geometry_type": "polygon",
+      "status": "en_revision",
+      "source_path": "geovisor/capas/cobertura_boscosa.geojson",
+      "expected_file_hint": "geovisor/capas/cobertura_boscosa.geojson",
+      "resolution": "Vectorial institucional (EPSG:4326)",
+      "style": {
+        "fill_color": "#27AE60",
+        "fill_opacity": 0.40,
+        "stroke_color": "#1E8449",
+        "stroke_width": 0.8
+      },
+      "caveat": "Polígonos de cobertura boscosa del área de estudio. Fuente: equipo MIVIOT."
+    },
+    {
+      "id": "pa-probabilidad-ocupacion-miviot",
+      "title": "Probabilidad de ocupación (vectorial)",
+      "group": "Priorización e inspección",
+      "format": "geojson",
+      "geometry_type": "polygon",
+      "status": "en_revision",
+      "source_path": "geovisor/capas/probabilidad_ocupacion.geojson",
+      "expected_file_hint": "geovisor/capas/probabilidad_ocupacion.geojson",
+      "resolution": "Vectorial institucional (EPSG:4326)",
+      "style": {
+        "fill_color": "#E67E22",
+        "fill_opacity": 0.45,
+        "stroke_color": "#BA4A00",
+        "stroke_width": 0.8
+      },
+      "caveat": "Áreas clasificadas por niveles de probabilidad de ocupación informal. Fuente: equipo MIVIOT."
+    },
+    {
       "id": "pa-cobertura-usosuelo-raster",
       "title": "Cobertura y uso del suelo (ráster)",
       "group": "Cobertura y uso del suelo",
